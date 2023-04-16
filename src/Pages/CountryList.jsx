@@ -14,6 +14,15 @@ export default function CountryList () {
     }, []);
     return (
         <div>
+          <h2>Country List</h2>
+          <label htmlFor="country-select">Filter by{" "}
+          <select id="country-select">
+            <option value="">---</option>
+            {country.map((country, id) => (
+            <option key={id} value={country.name.common}>{country.name.common}</option>
+            ))}
+          </select>
+          </label>
           {country.map((country, index) => (
             <div key={index}>
             <CountryCard country={country} />
