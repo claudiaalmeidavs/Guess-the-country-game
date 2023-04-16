@@ -9,25 +9,37 @@ export default function CountryList () {
         .then(response => setCountry(response.data))
         .catch(error => console.error(error));
     }
+    
     useEffect(() => {
         fetchCountries(); 
     }, []);
+
+    const [filteredCountry, setFilteredCountry] = useState("");
+
+    const handleSelectChange = (event) => {
+      setFilteredCountry(event.target.value);      
+    }
+
     return (
         <div>
           <h2>Country List</h2>
           <label htmlFor="country-select">Filter by{" "}
-          <select id="country-select">
+          <select id="country-select" onChange={handleSelectChange}>
             <option value="">---</option>
             {country.map((country, id) => (
             <option key={id} value={country.name.common}>{country.name.common}</option>
             ))}
           </select>
           </label>
-          {country.map((country, index) => (
-            <div key={index}>
+          {country
+        .filter((country) =>
+          filteredCountry ? country.name.common === filteredCountry : true
+        )
+        .map((country, index) => (
+          <div key={index}>
             <CountryCard country={country} />
-            </div>
-          ))}
+          </div>
+        ))}
         </div>
       );
     }
