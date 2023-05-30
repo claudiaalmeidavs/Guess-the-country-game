@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Exo+2&display=swap');
+
 :root {
+  --main-font: "Exo 2", sans-serif;
   --main-color: rgb(59, 59, 113);
   --secondary-color: beige;
+  --color-1: #542344;
+  --color-2: #EBF5EE;
+  --color-3: #D8BFAA;
+  --color-4: #808080;
 }

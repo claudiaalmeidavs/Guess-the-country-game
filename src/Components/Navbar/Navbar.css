@@ -1,0 +1,37 @@
+.navbar {
+    display: flex;
+    background-color: var(--color-1);
+    margin-right: 2px;
+    margin-left: 2px;
+    border-radius: 5px;
+    justify-content: space-between;
+  }
+  
+  .brand-name {
+    color: var(--color-2);
+    font-family: var(--main-font);
+    font-size: 30px;
+    margin-left: 3%;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-item {
+    list-style: none; 
+    margin-left: 15px;
+    margin-right: 10px;
+  }
+  
+  .nav-item > a {
+    font-family: var(--main-font);
+    color: var(--color-2);
+    margin-right: 15px;
+    text-decoration: none;
+  }
+
+  .nav-item > a:hover {
+    color: var(--color-3);
+  }
