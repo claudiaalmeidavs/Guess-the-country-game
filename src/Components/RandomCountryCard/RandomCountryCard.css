@@ -17,11 +17,12 @@
 #question-intro {
     font-family: var(--main-font);
     font-size: clamp(20px, 2vw, 50px);
-    color: var(--color-1)
+    color: var(--color-1);
+    margin-bottom: 50px;
 }
 
 .answer-container {
-    margin-top: 20px;
+    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -2,8 +2,7 @@ import "./RandomCountryCard.css";
 import React, { useState, useEffect } from "react";
 
 
-export default function RandomCountryCard({ country }) {
-    console.log(country);
+export default function RandomCountryCard({ country, onSubmit }) {
     const [answer, setAnswer] = useState("");
     const [isCorrectAnswer, setIsCorrectAnswer] = useState(null)
     const [submitted, setSubmitted] = useState(false);
@@ -20,7 +19,11 @@ export default function RandomCountryCard({ country }) {
       e.preventDefault();
       answer.toLowerCase() === country.name.common.toLowerCase() ? setIsCorrectAnswer(true) : setIsCorrectAnswer(false)
       setSubmitted(true);
+      setTimeout(() => {
+        onSubmit();
+      }, 4000);
     };
+
 
 
     useEffect(() => {
@@ -32,7 +35,6 @@ export default function RandomCountryCard({ country }) {
       country ? (
       <div className="country-container">
         <h2 id="question-intro">What country am I?</h2>
-        <p>This is the answer: {country.name.common}</p>
         <img id="game-card-image" src={country.flags.png} alt="This is the secret country's flag" />
         <p className="card-item"><strong>Capital</strong>: {country.capital}</p>
         <p className="card-item"><strong>Continent</strong>: {country.region}</p>
@@ -46,7 +48,7 @@ export default function RandomCountryCard({ country }) {
         </form>
         {submitted ? (
         <div className="message-submitted">
-            {isCorrectAnswer ? (<p className="message-win">Congratulations! Your answer was correct</p>) : (<p className="message-lose">Nope! The answer was {country.name.common}</p>)}        
+            {isCorrectAnswer ? (<p className="message-win">Congratulations! Your answer was correct.</p>) : (<p className="message-lose">Nope! The answer was {country.name.common}.</p>)}        
         </div> 
         ) : null
         }

@@ -17,22 +17,19 @@ export default function GamePage () {
         })
         .catch(error => console.error(error));
     };
+
+    const handleCardSubmit = () => {
+      fetchRandomCountry();
+    }
   
     useEffect(() => {
       fetchRandomCountry();
     }, []);
 
-    useEffect(() => {
-      setTimeout(() => {
-        console.log(country);
-      }, 1000); // Delay the console.log by 1 second (adjust the time if needed)
-    }, [country]);
-    
-
     return (
         <div>
             <h3>Guess the Country</h3>
-            <RandomCountryCard country={country}/>
+            <RandomCountryCard country={country} onSubmit={handleCardSubmit}/>
         </div>
     )
 }
