@@ -13,6 +13,7 @@ export default function GamePage () {
           const randomIndex = Math.floor(Math.random() * countries.length);
           const randomCountry = countries[randomIndex];
           setCountry(randomCountry);
+          console.log(country);
         })
         .catch(error => console.error(error));
     };
@@ -20,11 +21,14 @@ export default function GamePage () {
     useEffect(() => {
       fetchRandomCountry();
     }, []);
-  
+
     useEffect(() => {
-      console.log(country);
+      setTimeout(() => {
+        console.log(country);
+      }, 1000); // Delay the console.log by 1 second (adjust the time if needed)
     }, [country]);
     
+
     return (
         <div>
             <h3>Guess the Country</h3>
