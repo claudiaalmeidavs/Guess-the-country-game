@@ -40,6 +40,7 @@ export default function RandomCountryCard() {
       e.preventDefault();
       answer.toLowerCase() === country.name.common.toLowerCase() ? setIsCorrectAnswer(true) : setIsCorrectAnswer(false);
       setSubmitted(true);
+      setAnswer("");
       setTimeout(() => {
         handleCardSubmit();
         setSubmitted(false);
