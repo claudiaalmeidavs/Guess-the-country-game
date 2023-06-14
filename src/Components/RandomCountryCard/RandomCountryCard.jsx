@@ -1,35 +1,50 @@
 import "./RandomCountryCard.css";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-
-export default function RandomCountryCard({ country, onSubmit }) {
+export default function RandomCountryCard() {
     const [answer, setAnswer] = useState("");
     const [isCorrectAnswer, setIsCorrectAnswer] = useState(null)
     const [submitted, setSubmitted] = useState(false);
 
+    const [country, setCountry] = useState(null);
+
+    const fetchRandomCountry = () => {
+      axios
+        .get("https://restcountries.com/v3.1/all")
+        .then(response => {
+          const countries = response.data;
+          const randomIndex = Math.floor(Math.random() * countries.length);
+          const randomCountry = countries[randomIndex];
+          setCountry(randomCountry);
+          // console.log(country);
+        })
+        .catch(error => console.error(error));
+    };
+
+    const handleCardSubmit = () => {
+      fetchRandomCountry();
+    }
+  
+    useEffect(() => {
+      fetchRandomCountry();
+    }, []);
 
     // Update answer variable
     const onChange = (e) => {
       setAnswer(e.target.value)
     }
 
-
     // Determine if answer was correct and trigger the message
     const HandleSubmit = (e) => {
       e.preventDefault();
-      answer.toLowerCase() === country.name.common.toLowerCase() ? setIsCorrectAnswer(true) : setIsCorrectAnswer(false)
+      answer.toLowerCase() === country.name.common.toLowerCase() ? setIsCorrectAnswer(true) : setIsCorrectAnswer(false);
       setSubmitted(true);
       setTimeout(() => {
-        onSubmit();
+        handleCardSubmit();
+        setSubmitted(false);
       }, 4000);
     };
-
-
-
-    useEffect(() => {
-      console.log(isCorrectAnswer);
-    }, [isCorrectAnswer]);
-
 
     return (
       country ? (
@@ -46,13 +61,18 @@ export default function RandomCountryCard({ country, onSubmit }) {
             <button id="submit-guess-button" type="submit">Submit</button>
           </div>
         </form>
-        {submitted ? (
-        <div className="message-submitted">
-            {isCorrectAnswer ? (<p className="message-win">Congratulations! Your answer was correct.</p>) : (<p className="message-lose">Nope! The answer was {country.name.common}.</p>)}        
-        </div> 
-        ) : null
-        }
-      </div>  
-    ) : <div>Game loading</div>
-    )
-  }
+          {submitted && (
+            <div className="message-submitted">
+              {isCorrectAnswer ? (
+                <p className="message-win">Congratulations! Your answer was correct.</p>
+              ) : (
+                <p className="message-lose">Nope! The answer was {country.name.common}.</p>
+              )}
+            </div>
+          )}
+      </div>
+      ) : (
+        <div>Game loading</div>
+      )
+  );
+}

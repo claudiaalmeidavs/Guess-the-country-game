@@ -13,7 +13,7 @@ export default function GamePage () {
           const randomIndex = Math.floor(Math.random() * countries.length);
           const randomCountry = countries[randomIndex];
           setCountry(randomCountry);
-          console.log(country);
+          // console.log(country);
         })
         .catch(error => console.error(error));
     };
