@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import CountryList from './Pages/CountryList';
+import CountryList from './Pages/CountryList/CountryList.jsx';
 import GamePage from "./Pages/GamePage/GamePage.jsx";
 import Navbar from './Components/Navbar/Navbar';
 
