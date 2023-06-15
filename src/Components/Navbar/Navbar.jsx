@@ -7,7 +7,7 @@ return (
         <h2 className="brand-name">Guess the Country</h2>
         <ul className="nav-list">
             <li className="nav-item">
-                <Link className="nav-link" to="/">Country list</Link>
+                <Link className="nav-link" to="/countries">Country list</Link>
             </li>
             <li className="nav-item">
                 <Link className="nav-link" to="/game">Play the game</Link>
