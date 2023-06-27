@@ -44,7 +44,7 @@ export default function RandomCountryCard() {
       setTimeout(() => {
         handleCardSubmit();
         setSubmitted(false);
-      }, 4000);
+      }, 3000);
     };
 
     return (

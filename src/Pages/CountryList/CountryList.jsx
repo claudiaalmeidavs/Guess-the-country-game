@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import CountryCard from "../Components/CountryCard/CountryCard";
+import CountryCard from "../../Components/CountryCard/CountryCard";
+import "./CountryList.css"
 
 export default function CountryList () {
     const [country, setCountry] = useState([]);
@@ -31,6 +32,7 @@ export default function CountryList () {
             ))}
           </select>
           </label>
+          <div className="country-cards-container">
           {country
         .filter((country) =>
           filteredCountry ? country.name.common === filteredCountry : true
@@ -40,6 +42,7 @@ export default function CountryList () {
             <CountryCard country={country} />
           </div>
         ))}
+        </div>
         </div>
       );
     }
