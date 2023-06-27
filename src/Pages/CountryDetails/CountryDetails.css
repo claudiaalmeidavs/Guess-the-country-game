@@ -1,0 +1,38 @@
+.country-details-container {
+    margin-top: 40px;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 20px;
+    background-color: var(--color-3);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--main-font);
+    box-shadow: 0px 0px 12px var(--color-4);
+  }
+  
+  .details-title {
+    font-size: clamp(24px, 2vw, 50px);
+    color: var(--color-4);
+    margin-top: 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .un-member-p {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(74, 146, 130);
+  }
+  
+  .details-p {
+    font-size: 16px;
+    color: var(--color-4);
+    margin-bottom: 2px;
+  }
+  
+.list-languages {
+    list-style-type: square;
+    margin-left: 20px;
+    margin-top: 5px;
+}
