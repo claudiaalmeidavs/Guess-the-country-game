@@ -2,11 +2,12 @@ import "./RandomCountryCard.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function RandomCountryCard() {
+export default function RandomCountryCard({ score, setScore }) {
     const [answer, setAnswer] = useState("");
     const [isCorrectAnswer, setIsCorrectAnswer] = useState(null)
     const [submitted, setSubmitted] = useState(false);
 
+    // To fetch countries
     const [country, setCountry] = useState(null);
 
     const fetchRandomCountry = () => {
@@ -46,6 +47,12 @@ export default function RandomCountryCard() {
         setSubmitted(false);
       }, 3000);
     };
+
+    useEffect(() => {
+      if (isCorrectAnswer) {
+        setScore(prevScore => prevScore + 1); // Increment the score by 1
+      }
+    }, [isCorrectAnswer])
 
     return (
       country ? (

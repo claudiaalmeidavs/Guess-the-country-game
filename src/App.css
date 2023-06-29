@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Exo+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
 
 :root {
   --main-font: "Exo 2", sans-serif;
+  --heading-font: "Belanosima", sans-serif;
   --secondary-color: beige;
   --color-1: #542344;
   --color-2: #bfd1e5;
