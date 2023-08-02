@@ -1,0 +1,21 @@
+.pagination-list{
+    display: flex;
+    justify-content: flex-end;
+    font-family: var(--main-font);
+    margin-right: 5%;
+}
+
+.pagination-item {
+    color: var(--color-4);
+    margin-left: 10px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.pagination-itemactive {
+    color: var(--color-1);
+    list-style: none;
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+}

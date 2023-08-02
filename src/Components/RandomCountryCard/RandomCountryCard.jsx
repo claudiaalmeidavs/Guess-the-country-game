@@ -2,11 +2,12 @@ import "./RandomCountryCard.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function RandomCountryCard() {
+export default function RandomCountryCard({ score, setScore }) {
     const [answer, setAnswer] = useState("");
     const [isCorrectAnswer, setIsCorrectAnswer] = useState(null)
     const [submitted, setSubmitted] = useState(false);
 
+    // To fetch countries
     const [country, setCountry] = useState(null);
 
     const fetchRandomCountry = () => {
@@ -41,10 +42,14 @@ export default function RandomCountryCard() {
       answer.toLowerCase() === country.name.common.toLowerCase() ? setIsCorrectAnswer(true) : setIsCorrectAnswer(false);
       setSubmitted(true);
       setAnswer("");
+      if (isCorrectAnswer) {
+        setScore((prevScore) => prevScore + 1);
+      }
+      console.log(`This is the score ${score}`);      
       setTimeout(() => {
         handleCardSubmit();
         setSubmitted(false);
-      }, 4000);
+      }, 3000);
     };
 
     return (
