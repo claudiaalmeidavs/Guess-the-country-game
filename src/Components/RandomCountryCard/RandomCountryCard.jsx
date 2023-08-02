@@ -42,17 +42,15 @@ export default function RandomCountryCard({ score, setScore }) {
       answer.toLowerCase() === country.name.common.toLowerCase() ? setIsCorrectAnswer(true) : setIsCorrectAnswer(false);
       setSubmitted(true);
       setAnswer("");
+      if (isCorrectAnswer) {
+        setScore((prevScore) => prevScore + 1);
+      }
+      console.log(`This is the score ${score}`);      
       setTimeout(() => {
         handleCardSubmit();
         setSubmitted(false);
       }, 3000);
     };
-
-    useEffect(() => {
-      if (isCorrectAnswer) {
-        setScore(prevScore => prevScore + 1); // Increment the score by 1
-      }
-    }, [isCorrectAnswer])
 
     return (
       country ? (

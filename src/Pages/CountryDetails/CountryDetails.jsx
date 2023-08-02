@@ -31,12 +31,12 @@ export default function CountryDetails() {
       <p className="details-p"><strong>Area</strong>: {country.area} km2</p>
       <p className="details-p"><strong>Capital</strong>: {country.capital}</p>
       <p className="details-p"><strong>Continent</strong>: {country.continents}</p>
-      <p className="details-p"><strong>Languages</strong>:</p>
+      <p className="details-p"><strong>Language(s)</strong>:</p>
       {Object.entries(country.languages).map(([code, language]) => (
         <li className="details-p list-languages" key={code}>{language}</li>
       ))}
       <p className="details-p">
-          <strong>Status</strong>: {country.tld.independent ? "Independent" : "Not independent"}
+          <strong>Status</strong>: {country.independent ? "Independent" : "Not independent"}
       </p>
       
     </div>) : <div>Page loading...</div>
